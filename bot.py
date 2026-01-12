@@ -16,7 +16,6 @@ from datetime import datetime
 from dotenv import load_dotenv
 
 # ================= CARREGAR .ENV =================
-load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -370,3 +369,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
