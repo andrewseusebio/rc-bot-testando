@@ -244,19 +244,26 @@ async def main():
     app.add_handler(CallbackQueryHandler(callback_handler))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, receber_valor))
 
-    print("🤖 Bot rodando...")
-    await app.run_polling()
-
 if __name__ == "__main__":
     import logging
     logging.basicConfig(level=logging.INFO)
-    
-    import asyncio
-    import sys
 
-    # No PTB v20+, basta:
-    import bot
-    asyncio.run(bot.main())  # mesmo que você tenha v20+, agora funciona
+    import nest_asyncio
+    nest_asyncio.apply()  # Permite rodar asyncio dentro de um loop já existente
+
+    import asyncio
+
+    # Executa main sem criar um novo loop
+    asyncio.create_task(main())
+    print("🤖 Bot rodando no Railway...")
+    
+    # Mantém o loop rodando
+    try:
+        asyncio.get_event_loop().run_forever()
+    except KeyboardInterrupt:
+        print("Bot interrompido manualmente")
+
+
 
 
 
