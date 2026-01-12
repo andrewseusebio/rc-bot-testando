@@ -249,9 +249,13 @@ async def main():
 
 if __name__ == "__main__":
     import asyncio
+    import logging
+    logging.basicConfig(level=logging.INFO)
+    
+    import bot  # seu arquivo principal
+    # chama main sem asyncio.run
+    asyncio.create_task(bot.main())
 
-    # cria o loop e roda o main
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+
 
 
