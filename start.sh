@@ -11,3 +11,4 @@ pip install -r requirements.txt
 
 # Inicie o bot
 python3 bot.py
+
