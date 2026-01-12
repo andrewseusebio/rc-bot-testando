@@ -247,17 +247,17 @@ async def main():
 if __name__ == "__main__":
     import logging
     logging.basicConfig(level=logging.INFO)
-
-    # Apenas importe asyncio
     import asyncio
 
-    # Cria o bot como tarefa no loop atual
-    asyncio.get_event_loop().create_task(main())
+    loop = asyncio.new_event_loop()  # cria um novo loop
+    asyncio.set_event_loop(loop)     # define como loop atual
 
+    loop.create_task(main())          # cria a tarefa do bot
     print("🤖 Bot rodando no Railway...")
 
-    # Mantém o loop rodando
-    asyncio.get_event_loop().run_forever()
+    loop.run_forever()                # mantém o loop rodando
+
+
 
 
 
