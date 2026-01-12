@@ -2,3 +2,5 @@ python-telegram-bot==20.5
 asyncpg
 fastapi
 uvicorn[standard]
+aiohttp
+
