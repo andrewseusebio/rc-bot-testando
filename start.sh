@@ -1,2 +1,3 @@
 #!/bin/bash
-python3 rc-store-bot/bot_rcstore.py
+python3 bot.py
+
