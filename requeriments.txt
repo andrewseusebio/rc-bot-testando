@@ -1,2 +1,1 @@
-python-telegram-bot==20.5
-asyncpg==1.7.1
+python-telegram-bot==20.0
