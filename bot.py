@@ -248,13 +248,17 @@ async def main():
     await app.run_polling()
 
 if __name__ == "__main__":
-    import asyncio
     import logging
     logging.basicConfig(level=logging.INFO)
     
-    import bot  # seu arquivo principal
-    # chama main sem asyncio.run
-    asyncio.create_task(bot.main())
+    import asyncio
+    import sys
+
+    # No PTB v20+, basta:
+    import bot
+    asyncio.run(bot.main())  # mesmo que você tenha v20+, agora funciona
+
+
 
 
 
