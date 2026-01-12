@@ -9,7 +9,7 @@ from asaas import criar_pix
 
 # ================= CONFIG =================
 
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = os.getenv("BOT_TOKEN", "").strip()
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 PORT = int(os.getenv("PORT", 8080))
 
@@ -157,3 +157,4 @@ application.post_init = startup
 
 if __name__ == "__main__":
     flask_app.run(host="0.0.0.0", port=PORT)
+
