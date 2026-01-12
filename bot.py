@@ -248,20 +248,18 @@ if __name__ == "__main__":
     import logging
     logging.basicConfig(level=logging.INFO)
 
-    import nest_asyncio
-    nest_asyncio.apply()  # Permite rodar asyncio dentro de um loop já existente
-
+    # Apenas importe asyncio
     import asyncio
 
-    # Executa main sem criar um novo loop
-    asyncio.create_task(main())
+    # Cria o bot como tarefa no loop atual
+    asyncio.get_event_loop().create_task(main())
+
     print("🤖 Bot rodando no Railway...")
-    
+
     # Mantém o loop rodando
-    try:
-        asyncio.get_event_loop().run_forever()
-    except KeyboardInterrupt:
-        print("Bot interrompido manualmente")
+    asyncio.get_event_loop().run_forever()
+
+
 
 
 
